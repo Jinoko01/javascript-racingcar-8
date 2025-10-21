@@ -3,8 +3,8 @@ import { ERROR_MESSAGE, SYSTEM_MESSAGE } from '../data/messages.js';
 
 export default class InputProcessor {
   async input() {
-    const carNames = await this.inputCars();
-    const roundCount = await this.inputRound();
+    const carNames = await this.carsInput();
+    const roundCount = await this.roundInput();
 
     return { carNames, roundCount };
   }
