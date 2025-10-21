@@ -20,11 +20,10 @@ describe('InputProcessor 테스트', () => {
     const inputs = ['pobi,woni', '1'];
     mockQuestions([...inputs]);
 
-    const cars = await inputProcessor.carsInput();
-    const round = await inputProcessor.roundInput();
+    const { carNames, roundCount } = await inputProcessor.input();
 
-    expect(cars).toBe('pobi,woni');
-    expect(round).toBe('1');
+    expect(carNames).toBe('pobi,woni');
+    expect(roundCount).toBe('1');
   });
 });
 
