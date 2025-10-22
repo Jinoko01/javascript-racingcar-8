@@ -1,6 +1,9 @@
 export const SYSTEM_MESSAGE = Object.freeze({
   INPUT_CARS: '경주할 자동차 이름(이름은 쉼표(,) 기준으로 구분)\n',
   INPUT_ROUND: '시도할 횟수\n',
+  OUTPUT_CURRENT_STATUS: (carName, position) =>
+    `${carName} : ${'-'.repeat(position)}`,
+  OUTPUT_WINNERS: (winners) => `최종 우승자 : ${winners.join(', ')}`,
 });
 
 const ERROR_PREFIX = '[ERROR] ';
