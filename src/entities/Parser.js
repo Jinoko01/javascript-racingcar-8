@@ -1,8 +1,8 @@
 import { ERROR_MESSAGE } from '../data/messages.js';
 import { REGEX } from '../data/regex.js';
 
-const MIN_CAR_NAME_LENGTH = 1;
-const MAX_CAR_NAME_LENGTH = 5;
+const MIN_NAME_LENGTH = 1;
+const MAX_NAME_LENGTH = 5;
 const MIN_ROUND_COUNT = 1;
 
 export default class Parser {
@@ -14,7 +14,7 @@ export default class Parser {
   }
 
   #getCarNames(carNames) {
-    const result = carNames.split(',');
+    const result = carNames.split(',').map((carName) => carName.trim());
     this.#validateCarNames(result);
 
     return result;
@@ -25,12 +25,14 @@ export default class Parser {
   }
 
   #validateCarNames(carNames) {
-    if (
-      carNames.length < MIN_CAR_NAME_LENGTH ||
-      carNames.length > MAX_CAR_NAME_LENGTH
-    ) {
-      throw new Error(ERROR_MESSAGE.INVALID_CAR_NAMES_LENGTH);
-    }
+    carNames.forEach((carName) => {
+      const inValidCarNameLength =
+        carName.length < MIN_NAME_LENGTH || carName.length > MAX_NAME_LENGTH;
+
+      if (inValidCarNameLength) {
+        throw new Error(ERROR_MESSAGE.INVALID_CAR_NAMES_LENGTH);
+      }
+    });
   }
 
   #validateRoundCount(roundCount) {
