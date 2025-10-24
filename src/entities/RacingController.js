@@ -1,4 +1,5 @@
 import Car from './Car.js';
+import CarFactory from './CarFactory.js';
 import OutputProcessor from './OutputProcessor.js';
 import WinnerDeterminer from './WinnerDeterminer.js';
 
@@ -6,6 +7,7 @@ export default class RacingController {
   constructor() {
     this.carNames = [];
     this.roundCount = 0;
+    this.carFactory = new CarFactory();
   }
 
   start(carNames, roundCount) {
@@ -15,7 +17,7 @@ export default class RacingController {
   }
 
   #createCars(carNames) {
-    return carNames.map((carName) => new Car(carName));
+    return this.carFactory.createCars(carNames);
   }
 
   #play() {
