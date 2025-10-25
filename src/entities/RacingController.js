@@ -7,7 +7,6 @@ export default class RacingController {
     this.carNames = [];
     this.roundCount = 0;
     this.carFactory = new CarFactory();
-    this.carFactory = new CarFactory();
   }
 
   start(carNames, roundCount) {
@@ -17,7 +16,6 @@ export default class RacingController {
   }
 
   #createCars(carNames) {
-    return this.carFactory.createCars(carNames);
     return this.carFactory.createCars(carNames);
   }
 
