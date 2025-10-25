@@ -1,5 +1,6 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
 import RacingController from '../src/entities/RacingController.js';
+import CarFactory from '../src/entities/CarFactory.js';
 
 const getLogSpy = () => {
   const logSpy = jest.spyOn(MissionUtils.Console, 'print');
@@ -19,7 +20,7 @@ describe('RacingController 테스트', () => {
   let racingController;
 
   beforeEach(() => {
-    racingController = new RacingController();
+    racingController = new RacingController(new CarFactory());
   });
 
   it('자동차 경주를 시작한다.', () => {
