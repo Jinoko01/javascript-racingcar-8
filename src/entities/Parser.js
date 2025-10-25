@@ -26,14 +26,13 @@ export default class Parser {
   }
 
   #validateCarNames(carNames) {
-    carNames.forEach((carName) => {
-      const inValidCarNameLength =
-        carName.length < MIN_NAME_LENGTH || carName.length > MAX_NAME_LENGTH;
+    const invalidMinLength = carNames.some((carName) => carName.length < MIN_NAME_LENGTH);
+    const invalidMaxLength = carNames.some((carName) => carName.length > MAX_NAME_LENGTH);
+    const invalidCarNames = invalidMinLength || invalidMaxLength;
 
-      if (inValidCarNameLength) {
-        throw new Error(ERROR_MESSAGE.INVALID_CAR_NAMES_LENGTH);
-      }
-    });
+    if (invalidCarNames) {
+      throw new Error(ERROR_MESSAGE.INVALID_CAR_NAMES_LENGTH);
+    }
   }
 
   #validateRoundCount(roundCount) {
