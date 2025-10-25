@@ -4,6 +4,7 @@ import { REGEX } from '../data/regex.js';
 const MIN_NAME_LENGTH = 1;
 const MAX_NAME_LENGTH = 5;
 const MIN_ROUND_COUNT = 1;
+const DELIMITER = ',';
 
 export default class Parser {
   parse(carNames, roundCount) {
@@ -14,7 +15,7 @@ export default class Parser {
   }
 
   #getCarNames(carNames) {
-    const result = carNames.split(',').map((carName) => carName.trim());
+    const result = carNames.split(DELIMITER).map((carName) => carName.trim());
     this.#validateCarNames(result);
 
     return result;
