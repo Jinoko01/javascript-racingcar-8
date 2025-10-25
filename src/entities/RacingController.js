@@ -1,12 +1,11 @@
-import CarFactory from './CarFactory.js';
 import OutputProcessor from './OutputProcessor.js';
 import WinnerDeterminer from './WinnerDeterminer.js';
 
 export default class RacingController {
-  constructor() {
+  constructor(carFactory) {
     this.carNames = [];
     this.roundCount = 0;
-    this.carFactory = new CarFactory();
+    this.carFactory = carFactory;
   }
 
   start(carNames, roundCount) {

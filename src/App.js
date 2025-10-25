@@ -1,5 +1,6 @@
 import InputProcessor from './entities/InputProcessor.js';
 import Parser from './entities/Parser.js';
+import CarFactory from './CarFactory.js';
 import RacingController from './entities/RacingController.js';
 
 class App {
@@ -14,7 +15,8 @@ class App {
       roundCountInput
     );
 
-    const racingController = new RacingController();
+    const carFactory = new CarFactory();
+    const racingController = new RacingController(carFactory);
     racingController.start(carNames, roundCount);
   }
 }
