@@ -3,9 +3,7 @@ import { SYSTEM_MESSAGE } from '../data/messages.js';
 
 export default class OutputProcessor {
   static printStatus(scores) {
-    scores.forEach((score) => {
-      const [carName, position] = score;
-
+    scores.forEach(([carName, position]) => {
       Console.print(SYSTEM_MESSAGE.OUTPUT_CURRENT_STATUS(carName, position));
     });
     Console.print('');
