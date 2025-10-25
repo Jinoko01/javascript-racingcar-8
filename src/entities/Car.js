@@ -3,6 +3,7 @@ import { Random } from '@woowacourse/mission-utils';
 const MIN_RANDOM_NUMBER = 0;
 const MAX_RANDOM_NUMBER = 9;
 const MOVE_FORWARD_CONDITION = 4;
+const MOVE_STEP = 1;
 
 export default class Car {
   #name;
@@ -20,7 +21,7 @@ export default class Car {
     );
 
     if (random >= MOVE_FORWARD_CONDITION) {
-      this.#position += 1;
+      this.#position += MOVE_STEP;
     }
   }
 
