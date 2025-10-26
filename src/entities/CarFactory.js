@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE } from '../data/messages.js';
 import Car from './Car.js';
 
 export default class CarFactory {
@@ -10,7 +11,7 @@ export default class CarFactory {
   #validateDuplicated(carNames) {
     const carNameSet = new Set(carNames);
     if (carNameSet.size !== carNames.length) {
-      throw new Error('자동차 이름이 중복되었습니다.');
+      throw new Error(ERROR_MESSAGE.DUPLICATED_CAR);
     }
   }
 }
