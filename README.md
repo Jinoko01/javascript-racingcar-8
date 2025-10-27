@@ -5,7 +5,7 @@
 ## 구현 기능 목록
 
 - [x] 사용자의 입력(자동차 목록, 라운드 수)을 받는다.
-- [x] 입력 문자열을 파싱하여 자동차 목록 문자열 배열과 라운드 수를 추출한다.
+- [x] 입력 문자열 파싱을 파싱하여 자동차 목록 문자열 배열과 라운드 수를 추출한다.
 - [x] 자동차 목록 문자열 배열을 기준으로 자동차 객체들을 생성한다.
 - [x] 주어진 라운드 수 만큼 자동차들의 전진을 시도한다.
 - [x] 매 라운드마다 현황판을 출력한다.
@@ -90,8 +90,9 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  InputProcessor -->|parse| Parser
-  Parser -->|start| RacingController
+  App -->|input| InputProcessor
+  App -->|parse| Parser
+  App -->|start| RacingController
   RacingController -->|startRound| Car
   RacingController -->|print| OutputProcessor
   RacingController -->|checkWinner| WinnerDeterminer
